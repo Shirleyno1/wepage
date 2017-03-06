@@ -1,0 +1,37 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme.base" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/tabTitleSelect</item>
+        <item name="colorPrimaryDark">@color/tabTitleSelect</item>
+        <item name="colorAccent">@color/tabTitleSelect</item>
+        <item name="android:actionBarSize">50dp</item>
+    </style>
+    <style name="StudioTheme" parent="AppTheme.base">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="ListLineTheme" parent="StudioTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:listDivider">@drawable/divider</item>
+    </style>
+    <style name="AppTheme.base.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Teambition.Dialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowEnterAnimation">@anim/dialog_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_exit</item>
+        <item name="colorAccent">@color/tb_color_blue</item>
+    </style>
+    <style name="Theme.Teambition.Dialog.Progressbar" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+</resources>

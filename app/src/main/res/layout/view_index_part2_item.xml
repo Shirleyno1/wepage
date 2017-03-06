@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"
+   android:layout_marginLeft="@dimen/page_left_right_margin"
+   android:layout_marginRight="@dimen/page_left_right_margin"
+   android:layout_marginBottom="@dimen/page_left_right_margin"
+   android:background="@android:color/white">
+   <ImageView
+      android:id="@+id/iv_item_logo2"
+      android:layout_width="85dp"
+      android:layout_height="70dp"
+      android:scaleType="fitStart"/>
+   <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/page_left_right_margin"
+        android:textColor="@color/text_color"
+        android:layout_toRightOf="@id/iv_item_logo2"
+        android:textSize="18sp"
+        android:text="智勇新闻"/>
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/page_left_right_margin"
+        android:paddingRight="@dimen/page_left_right_padding"
+        android:layout_alignParentRight="true"
+        android:textSize="12sp"
+        android:text="15:20"/>
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:textSize="14sp"
+       android:paddingLeft="@dimen/page_left_right_margin"
+       android:paddingRight="@dimen/page_left_right_padding"
+       android:paddingBottom="@dimen/page_left_right_margin"
+       android:textColor="@color/text_color"
+       android:text="蔡英文设新机构推多边双边协定 美专家：一个谈很难"
+       android:layout_below="@id/tv_title"
+       android:layout_toRightOf="@id/iv_item_logo2"
+       android:id="@+id/tv_content"/>
+</RelativeLayout>

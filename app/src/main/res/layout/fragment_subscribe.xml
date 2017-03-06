@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/container"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:background="@color/background">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_subscribe"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/tabTitleSelect"
+        style="@style/StudioTheme">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:text="@string/title2"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"/>
+        <com.andexert.library.RippleView
+            android:id="@+id/add_subcribe_list"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="right"
+            android:layout_marginLeft="@dimen/page_left_right_margin"
+            rv_centered="true">
+            <TextView
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:background="@drawable/add_selector"
+                android:text=""/>
+        </com.andexert.library.RippleView>
+    </android.support.v7.widget.Toolbar>
+    <TextView
+        android:id="@+id/tv_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar_subscribe"
+        android:textSize="16sp"
+        android:padding="@dimen/page_left_right_padding"
+        android:text="@string/recommend_subscribe"/>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_container"
+        android:layout_below="@id/tv_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_studio"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</android.support.v4.widget.SwipeRefreshLayout>
+</RelativeLayout>

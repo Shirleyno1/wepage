@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/container"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/background">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_index"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/tabTitleSelect"
+        style="@style/StudioTheme">
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:text="@string/title1"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"/>
+    </android.support.v7.widget.Toolbar>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_container"
+        android:layout_below="@id/toolbar_index"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.pdmi.app.wepage.ui.widget.XCRecyclerView
+            android:id="@+id/rv_list"
+            android:layout_below="@id/toolbar_index"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="true"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</RelativeLayout>
+

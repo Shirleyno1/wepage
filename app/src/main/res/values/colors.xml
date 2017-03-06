@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="transparent">#00000000</color><!--透明色 -->
+    <color name="white">@android:color/white</color><!--透明色 -->
+
+    <!--tab title color-->
+    <color name="tabTitle">#74777e</color>
+    <color name="tabTitleSelect">#F85759</color>
+
+    <color name="tb_color_blue">#f95759</color>
+    <color name="text_color">#333333</color>
+    <color name="text_read_color">#999999</color>
+    <color name="line_color">#EEEEEE</color>
+    <color name="background">#EBEBEB</color>
+
+
+</resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_index"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/tabTitleSelect"
+        style="@style/StudioTheme">
+        <com.andexert.library.RippleView
+            android:id="@+id/back"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_centerInParent="true"
+            rv_centered="true">
+        <TextView
+            android:layout_width="12dp"
+            android:layout_height="19dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/back_selector"
+            android:text=""/>
+        </com.andexert.library.RippleView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:text="@string/title5"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"/>
+        <com.andexert.library.RippleView
+            android:id="@+id/tv_share"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="right"
+            android:layout_marginLeft="@dimen/page_left_right_margin"
+            rv_centered="true">
+        <TextView
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:background="@drawable/share"
+            android:text=""/>
+        </com.andexert.library.RippleView>
+    </android.support.v7.widget.Toolbar>
+    <WebView
+        android:id="@+id/web"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="http://schemas.android.com/tools" xliff:ignore="MissingTranslation">
+    <string name="app_name">微首页</string>
+
+    <!--tab-->
+    <string name="tab1">首页</string>
+    <string name="tab2">订阅</string>
+    <string name="tab3">我</string>
+    <string name="subscribe_not_update">订阅不更新</string>
+    <string name="title1">微首页</string>
+    <string name="title2">订阅广场</string>
+    <string name="title4">批量订阅</string>
+
+    <string name="msg_network_error">网络错误</string>
+    <string name="action_complete">完成</string>
+
+    <!-- Android M Permission-->
+    <string name="permission_reason_contact">需要访问你的通讯录以显示内容</string>
+    <string name="permission_reason_record">需要访问你的存储空间和麦克风以发送语音信息</string>
+    <string name="permission_reason_camera">需要访问你的相机以使用相关功能</string>
+    <string name="permission_reason_storage">需要访问你的存储空间以使用相关功能</string>
+    <string name="permission_reason_phone">需要访问你的电话功能以拨打电话</string>
+    <string name="title5">新闻详情</string>
+    <string name="subscribe">订阅</string>
+    <string name="subscribed">已订</string>
+    <string name="recommend_subscribe">推荐订阅</string>
+    <string name="author">作者:</string>
+    <string name="more_artcles">更多文章 ></string>
+    <string name="me">我</string>
+    <string name="login_now">立即登录</string>
+    <string name="login_tag">登录账号，同步您的订阅账号</string>
+
+</resources>
