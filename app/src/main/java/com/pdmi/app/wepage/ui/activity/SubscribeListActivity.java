@@ -83,7 +83,7 @@ public class SubscribeListActivity extends BaseActivity implements OnItemClick,I
   @Override
   public void subscribe() {
     SubscribeListActivity.this.finish();
-    Toast.makeText(this, "订阅成功", Toast.LENGTH_SHORT).show();
+    Toast.makeText(this, getResources().getString(R.string.subscribed), Toast.LENGTH_SHORT).show();
   }
 
   @Override

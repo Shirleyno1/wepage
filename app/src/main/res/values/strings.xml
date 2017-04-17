@@ -23,11 +23,16 @@
     <string name="title5">新闻详情</string>
     <string name="subscribe">订阅</string>
     <string name="subscribed">已订</string>
+    <string name="subscribed_succ">订阅成功</string>
     <string name="recommend_subscribe">推荐订阅</string>
     <string name="author">作者:</string>
     <string name="more_artcles">更多文章 ></string>
     <string name="me">我</string>
     <string name="login_now">立即登录</string>
     <string name="login_tag">登录账号，同步您的订阅账号</string>
+
+    <string name="article_new">最新</string>
+    <string name="article_more">更多</string>
+
 
 </resources>

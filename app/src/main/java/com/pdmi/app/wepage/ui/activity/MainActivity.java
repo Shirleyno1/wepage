@@ -136,8 +136,8 @@ private void setState(int index){
 //    mPager = (ViewPager)findViewById(R.id.viewpager);
     fragmentList = new ArrayList<Fragment>();
     Fragment btFragment= new IndexFragment();
-    Fragment secondFragment = SubscribeFragment.newInstance("this is second fragment");
-    Fragment thirdFragment = MeFragment.newInstance("this is third fragment");
+    Fragment secondFragment = SubscribeFragment.newInstance();
+    Fragment thirdFragment = MeFragment.newInstance();
     fragmentList.add(btFragment);
     fragmentList.add(secondFragment);
     fragmentList.add(thirdFragment);
@@ -149,14 +149,12 @@ private void setState(int index){
     mPager.addOnPageChangeListener(new MyOnPageChangeListener());//页面变化时的监听器
   }
 
-
   public class MyOnPageChangeListener implements OnPageChangeListener{
 //    private int one = offset *2 +bmpW;//两个相邻页面的偏移量
 
     @Override
     public void onPageScrolled(int arg0, float arg1, int arg2) {
       // TODO Auto-generated method stub
-
     }
 
     @Override
@@ -190,15 +188,6 @@ private void setState(int index){
     super.onDestroy();
     ButterKnife.reset(this);//解除绑定，官方文档只对fragment做了解绑
   }
-//  public Toolbar initToolbar() {
-//    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//    setSupportActionBar(toolbar);
-//    ActionBar actionBar = getSupportActionBar();
-//    if (actionBar != null) {
-//      actionBar.setDisplayHomeAsUpEnabled(true);
-//    }
-//    return toolbar;
-//  }
   @Override
   public void onBackPressed() {
     if(getSupportFragmentManager().getBackStackEntryCount()>0){

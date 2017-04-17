@@ -12,11 +12,9 @@ import com.pdmi.app.wepage.R;
  */
 public class MeFragment extends BaseFragment{
   private static final String TAG = "MeFragment";
-  public static MeFragment newInstance(String s) {
+  public static MeFragment newInstance() {
     MeFragment newFragment = new MeFragment();
-    Bundle bundle = new Bundle();
-    bundle.putString("hello", s);
-    newFragment.setArguments(bundle);
+//    newFragment.setArguments(bundle);
     return newFragment;
   }
 

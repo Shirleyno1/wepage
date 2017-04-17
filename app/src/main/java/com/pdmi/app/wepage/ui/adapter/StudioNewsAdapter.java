@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.balysv.materialripple.MaterialRippleLayout;
 import com.pdmi.app.wepage.R;
 import com.pdmi.app.wepage.model.ArticleItem;
 import com.pdmi.app.wepage.ui.widget.NoDoubleClickListener;
@@ -35,7 +36,17 @@ public class StudioNewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private final static int ITEM_TYPE1 = 1;
     //分割title
     private final static int ITEM_TYPE2 = 2;
+    public static final int TYPE_FOOTER = 3;  //说明是带有Footer的
+    private View mFooterView;
     private static final int newCount = 3;
+    public View getFooterView() {
+        return mFooterView;
+    }
+    public void setFooterView(View footerView) {
+        mFooterView = footerView;
+        notifyDataSetChanged();
+//        notifyItemInserted(getItemCount()-1);
+    }
 
     public StudioNewsAdapter(Context mContext, List<ArticleItem> list) {
         this.mContext = mContext;
@@ -45,10 +56,21 @@ public class StudioNewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == ITEM_TYPE1) {
-            return new ViewHolder1(LayoutInflater.from(parent.getContext()).inflate(R.layout.view_studio_part2_item, parent, false));
+//            return new ViewHolder1(LayoutInflater.from(parent.getContext()).inflate(R.layout.view_studio_part2_item, parent, false));
+            return new ViewHolder1(
+                MaterialRippleLayout.on((LayoutInflater.from(parent.getContext()).inflate(R.layout.view_studio_part2_item, parent, false)))
+                .rippleOverlay(true)
+                .rippleAlpha(0.2f)
+                .rippleColor(0xFF585858)
+                .rippleHover(true)
+                .create()
+            );
         } else if (viewType == ITEM_TYPE2){
             return new ViewHolder2(LayoutInflater.from(parent.getContext()).inflate(R.layout.view_seperator, parent, false));
-        } return new IndexMultipleItemAdapter.ViewHolder2(LayoutInflater.from(parent.getContext()).inflate(R.layout.view_studio_part2_item, parent, false));
+        }if(mFooterView != null && viewType == TYPE_FOOTER){
+            return new ViewHolder3(mFooterView);
+        }
+        return new ViewHolder2(LayoutInflater.from(parent.getContext()).inflate(R.layout.view_studio_part2_item, parent, false));
     }
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -75,11 +97,11 @@ public class StudioNewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             }
 //            else((ViewHolder1)holder).iv_logo.setBackgroundResource(R.drawable.u6);
         }else{
-           if (position == 0){
-               ((ViewHolder2)holder).tv_seperator.setText("最新");
-           }else{
-               ((ViewHolder2)holder).tv_seperator.setText("更多");
-           }
+            if (position == 0){
+                ((ViewHolder2)holder).tv_seperator.setText("最新");
+            }else{
+                ((ViewHolder2)holder).tv_seperator.setText("更多");
+            }
         }
         holder.itemView.setOnClickListener(new NoDoubleClickListener() {
             @Override
@@ -99,12 +121,15 @@ public class StudioNewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     @Override
     public int getItemCount() {
-        if(mlist.size()>newCount){
-            return mlist.size()+2;
-        }if(mlist.size() == 0){
-            return 0;
+        int count = 0;
+        if(mlist.size() == 0){
+            count = 0;
+        } else if(mlist.size()>newCount){
+            count = mlist.size()+2;
+        } if(mlist.size() != 0 && mFooterView != null){
+            count = count +1;
         }
-        return mlist.size()+1;
+        return count;
     }
     private static OnItemClickListener clickListener;
     public void setOnItemClickListener(OnItemClickListener clickListener) {
@@ -137,10 +162,20 @@ public class StudioNewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             ButterKnife.inject(this,mView);
         }
     }
+    public static class ViewHolder3 extends RecyclerView.ViewHolder{
+        public final View mView;
+        public ViewHolder3(View itemView) {
+            super(itemView);
+            mView = itemView;
+        }
+    }
 
     @Override
     public int getItemViewType(int position) {
-        if(position == newCount+1 ||position == 0){
+        if (position!=0 && mFooterView != null && position == getItemCount()-1){
+            //最后一个,应该加载Footer
+            return TYPE_FOOTER;
+        } else if(position == newCount+1 ||position == 0){
             return ITEM_TYPE2;
         }else
             return ITEM_TYPE1;

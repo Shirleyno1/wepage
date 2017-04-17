@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/container"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -19,22 +21,33 @@
             android:text="@string/title2"
             android:textColor="@android:color/white"
             android:textSize="20sp"/>
-        <com.andexert.library.RippleView
+        <!--<com.balysv.materialripple.MaterialRippleLayout-->
+            <!--android:id="@+id/add_subcribe_list"-->
+            <!--android:layout_width="55dp"-->
+            <!--android:layout_height="55dp"-->
+            <!--app:mrl_rippleRoundedCorners="90dp"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:layout_gravity="right"-->
+            <!--android:layout_marginLeft="@dimen/page_left_right_margin"-->
+            <!--rv_centered="true">-->
+            <!--<TextView-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_width="19dp"-->
+                <!--android:layout_height="19dp"-->
+                <!--android:gravity="center"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--android:background="@drawable/add_selector"-->
+                <!--android:text=""/>-->
+        <!--</com.balysv.materialripple.MaterialRippleLayout>-->
+        <TextView
             android:id="@+id/add_subcribe_list"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:layout_marginRight="@dimen/activity_vertical_margin12"
             android:layout_centerInParent="true"
             android:layout_gravity="right"
-            android:layout_marginLeft="@dimen/page_left_right_margin"
-            rv_centered="true">
-            <TextView
-                android:layout_width="19dp"
-                android:layout_height="19dp"
-                android:gravity="center"
-                android:layout_centerInParent="true"
-                android:background="@drawable/add_selector"
-                android:text=""/>
-        </com.andexert.library.RippleView>
+            android:background="@drawable/add_selector"
+            android:text=""/>
     </android.support.v7.widget.Toolbar>
     <TextView
         android:id="@+id/tv_text"

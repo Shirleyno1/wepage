@@ -11,24 +11,20 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Gravity;
-import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.pdmi.app.wepage.R;
 import com.pdmi.app.wepage.model.Studio;
-import com.pdmi.app.wepage.model.StudioItem;
 import com.pdmi.app.wepage.presenter.impl.StudioPresenter;
 import com.pdmi.app.wepage.ui.adapter.StudioNewsAdapter;
 import com.pdmi.app.wepage.ui.view.IStudioView;
-import com.pdmi.app.wepage.ui.widget.MyDecorationLine;
+import com.pdmi.app.wepage.ui.widget.MyHorizontalDividerItemDecoration;
 import com.pdmi.app.wepage.ui.widget.MyLinearLayoutManager;
 import com.pdmi.app.wepage.util.NetWorkUtil;
 import com.pdmi.app.wepage.util.retrofit.GitHubService;
 import com.squareup.picasso.Picasso;
-import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -93,7 +89,7 @@ public class StudioActivity extends BaseActivity implements IStudioView,SwipeRef
     rv_studio_newslist.setLayoutManager(new MyLinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
     rv_studio_newslist.setNestedScrollingEnabled(false);
     //这句就是添加我们自定义的分隔线
-    rv_studio_newslist.addItemDecoration(new HorizontalDividerItemDecoration.Builder(this)
+    rv_studio_newslist.addItemDecoration(new MyHorizontalDividerItemDecoration.Builder(this)
         .colorResId(R.color.line_color)
         .sizeResId(R.dimen.divider)
         .marginResId(R.dimen.margin14, R.dimen.margin14)
@@ -168,7 +164,7 @@ public class StudioActivity extends BaseActivity implements IStudioView,SwipeRef
   @Override
   public void subscribe(boolean isHasSubscribed) {
     bt_subscribe.setChecked(isHasSubscribed);
-    bt_subscribe.setText(isHasSubscribed?"已订":"订阅");
+    bt_subscribe.setText(isHasSubscribed?getResources().getString(R.string.subscribed):getResources().getString(R.string.subscribe));
   }
 
   @OnClick(R.id.back)
@@ -178,7 +174,7 @@ public class StudioActivity extends BaseActivity implements IStudioView,SwipeRef
   @Override
   public void setState(boolean isSubscribed) {
     bt_subscribe.setChecked(isSubscribed);
-    bt_subscribe.setText(isSubscribed?"已订":"订阅");
+    bt_subscribe.setText(isSubscribed?getResources().getString(R.string.subscribed):getResources().getString(R.string.subscribe));
   }
 
   @Override

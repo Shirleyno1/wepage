@@ -8,7 +8,6 @@ import android.content.Context;
 import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +59,12 @@ public class SubscribeStudiosAdapter extends RecyclerView.Adapter<SubscribeStudi
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view =
                 LayoutInflater.from(parent.getContext()).inflate(R.layout.view_subscribe_list_item, parent, false);
+//        return new ViewHolder( MaterialRippleLayout.on(view)
+//            .rippleOverlay(true)
+//            .rippleAlpha(0.2f)
+//            .rippleColor(0xFF585858)
+//            .rippleHover(true)
+//            .create());
         return new ViewHolder(view);
     }
 

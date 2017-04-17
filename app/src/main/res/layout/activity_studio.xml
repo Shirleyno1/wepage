@@ -84,19 +84,27 @@
                 app:layout_collapseMode="pin"
                 app:layout_scrollFlags="scroll|enterAlways"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-                <com.andexert.library.RippleView
-                    android:id="@+id/back"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:layout_centerInParent="true"
-                    rv_centered="true">
+                <!--<com.balysv.materialripple.MaterialRippleLayout-->
+                    <!--android:id="@+id/back"-->
+                    <!--android:layout_width="55dp"-->
+                    <!--android:layout_height="55dp"-->
+                    <!--android:layout_centerInParent="true"-->
+                    <!--rv_centered="true">-->
+                <!--<TextView-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_width="12dp"-->
+                    <!--android:layout_height="19dp"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:background="@drawable/back_selector"-->
+                    <!--android:text=""/>-->
+                <!--</com.balysv.materialripple.MaterialRippleLayout>-->
                 <TextView
+                    android:id="@+id/back"
                     android:layout_width="12dp"
                     android:layout_height="19dp"
                     android:layout_centerVertical="true"
                     android:background="@drawable/back_selector"
                     android:text=""/>
-                </com.andexert.library.RippleView>
                 <CheckBox
                     android:id="@+id/bt_subscribe"
                     android:layout_width="46dp"
@@ -119,17 +127,28 @@
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:fillViewport="true"
+        android:overScrollMode="always"
         app:layout_scrollFlags="scroll"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_studio_newslist"
             android:background="@color/white"
             android:clipToPadding="true"
+            android:paddingBottom="@dimen/activity_vertical_margin12"
+            android:overScrollMode="always"
+            android:overScrollFooter="@drawable/logo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-
+        <!--<com.jude.easyrecyclerview.EasyRecyclerView-->
+        <!--android:id="@+id/rv_studio_newslist"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--app:recyclerClipToPadding="true"-->
+        <!--android:overScrollMode="always"-->
+        <!--app:layout_progress="@layout/dialog_loading_indicator"-->
+        <!--/>-->
     </android.support.v4.widget.NestedScrollView>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -41,11 +41,10 @@ public class SubscribeFragment extends BaseFragment implements IStudioListView,S
   @InjectView(R.id.swipe_container)
   SwipeRefreshLayout refreshLayout;
   private SubscribeStudiosAdapter adapter;
-  public static SubscribeFragment newInstance(String s) {
+  public static SubscribeFragment newInstance() {
     SubscribeFragment newFragment = new SubscribeFragment();
-    Bundle bundle = new Bundle();
-    bundle.putString("hello", s);
-    newFragment.setArguments(bundle);
+//    Bundle bundle = new Bundle();
+//    newFragment.setArguments(bundle);
     return newFragment;
   }
 
@@ -172,15 +171,4 @@ public class SubscribeFragment extends BaseFragment implements IStudioListView,S
   public void onRefresh() {
     requestData();
   }
-//  public Toolbar initToolbar() {
-//    AppCompatActivity mAppCompatActivity = (AppCompatActivity) getActivity();
-//
-//    mAppCompatActivity.setSupportActionBar(toolbar);
-//    ActionBar actionBar = mAppCompatActivity.getSupportActionBar();
-//    if (actionBar != null) {
-//      actionBar.setDisplayHomeAsUpEnabled(false);
-//      actionBar.setDisplayShowTitleEnabled(false);
-//    }
-//    return toolbar;
-//  }
 }

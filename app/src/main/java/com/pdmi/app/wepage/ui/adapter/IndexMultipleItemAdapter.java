@@ -1,8 +1,5 @@
 package com.pdmi.app.wepage.ui.adapter;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
@@ -16,11 +13,13 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.balysv.materialripple.MaterialRippleLayout;
 import com.pdmi.app.wepage.R;
 import com.pdmi.app.wepage.model.IndexItem;
 import com.pdmi.app.wepage.ui.widget.NoDoubleClickListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -32,7 +31,7 @@ import butterknife.OnClick;
  */
 public class IndexMultipleItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private Context mContext;
-    private List<IndexItem> mlist1;
+    private List<IndexItem> mlist1 = new ArrayList<IndexItem>();
     private List mlist2;
     //列表分割线位置
 //    private int sepIndex;
@@ -167,37 +166,37 @@ public class IndexMultipleItemAdapter extends RecyclerView.Adapter<RecyclerView.
             }
         }
 
-        if(position < getItemCount()){
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ObjectAnimator animator = ObjectAnimator.ofFloat(holder.itemView, "translationZ", 20, 0);
-                animator.addListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-//                        mContext.startActivity(new Intent(mContext, DetailActivity.class));
-
-                    }
-                });
-                animator.start();
-            }
-        });
-        }else if(position > getItemCount()){
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ObjectAnimator animator = ObjectAnimator.ofFloat(holder.itemView, "translationZ", 20, 0);
-                animator.addListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-//                        mContext.startActivity(new Intent(mContext, DetailActivity.class));
-                  studioClickListener.onClick(position);
-                    }
-                });
-                animator.start();
-            }
-        });
-        }
+//        if(position < getItemCount()){
+//            holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ObjectAnimator animator = ObjectAnimator.ofFloat(holder.itemView, "translationZ", 20, 0);
+//                animator.addListener(new AnimatorListenerAdapter() {
+//                    @Override
+//                    public void onAnimationEnd(Animator animation) {
+////                        mContext.startActivity(new Intent(mContext, DetailActivity.class));
+//
+//                    }
+//                });
+//                animator.start();
+//            }
+//        });
+//        }else if(position > getItemCount()){
+//            holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ObjectAnimator animator = ObjectAnimator.ofFloat(holder.itemView, "translationZ", 20, 0);
+//                animator.addListener(new AnimatorListenerAdapter() {
+//                    @Override
+//                    public void onAnimationEnd(Animator animation) {
+////                        mContext.startActivity(new Intent(mContext, DetailActivity.class));
+//                  studioClickListener.onClick(position);
+//                    }
+//                });
+//                animator.start();
+//            }
+//        });
+//        }
 
     }
     private static OnStudioClickListener studioClickListener;
@@ -261,6 +260,9 @@ public class IndexMultipleItemAdapter extends RecyclerView.Adapter<RecyclerView.
         View line1;
         @InjectView(R.id.line2)
         View line2;
+        @InjectView(R.id.rv_studio)
+        RelativeLayout rv_studio;
+
 
 //        @InjectView(R.id.tv_author1)
 //        TextView tv_author1;
@@ -284,56 +286,60 @@ public class IndexMultipleItemAdapter extends RecyclerView.Adapter<RecyclerView.
         @OnClick(R.id.rv_studio)
         void getStudioDetail(){
             //跳转到新闻详情
+//            MaterialRippleLayout.on(rv_studio)
+//                .rippleOverlay(true)
+//                .rippleAlpha(0.2f)
+//                .rippleColor(0xFF585858)
+//                .rippleHover(true)
+//                .create();
             studioClickListener.onClick(getAdapterPosition());
         }
         @OnClick(R.id.ll_item1)
         void getFirstNews(){
             //跳转到新闻详情
+            MaterialRippleLayout.on(ll_item1)
+                .rippleOverlay(true)
+                .rippleAlpha(0.2f)
+                .rippleColor(0xFF585858)
+                .rippleHover(true)
+                .create();
             ll_item1.setOnClickListener(new NoDoubleClickListener() {
                 @Override
                 protected void onNoDoubleClick(View v) {
-                    ObjectAnimator animator = ObjectAnimator.ofFloat(ll_item1, "translationZ", 20, 0);
-                    animator.addListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            newsClickListener.onClick(getAdapterPosition(),0);
-                        }
-                    });
-                    animator.start();
+                    newsClickListener.onClick(getAdapterPosition(),0);
                 }
             });
         }
         @OnClick(R.id.ll_item2)
         void getSecondNews(){
             //跳转到新闻详情
+            MaterialRippleLayout.on(ll_item2)
+                .rippleOverlay(true)
+                .rippleAlpha(0.2f)
+                .rippleColor(0xFF585858)
+                .rippleHover(true)
+                .create();
             ll_item2.setOnClickListener(new NoDoubleClickListener() {
                 @Override
                 protected void onNoDoubleClick(View v) {
-                    ObjectAnimator animator = ObjectAnimator.ofFloat(ll_item2, "translationZ", 20, 0);
-                    animator.addListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            newsClickListener.onClick(getAdapterPosition(),1);
-                        }
-                    });
-                    animator.start();
+               newsClickListener.onClick(getAdapterPosition(),1);
+
                 }
             });
         }
         @OnClick(R.id.ll_item3)
         void getThirdNews(){
             //跳转到新闻详情
+            MaterialRippleLayout.on(ll_item3)
+                .rippleOverlay(true)
+                .rippleAlpha(0.2f)
+                .rippleColor(0xFF585858)
+                .rippleHover(true)
+                .create();
             ll_item3.setOnClickListener(new NoDoubleClickListener() {
                 @Override
                 protected void onNoDoubleClick(View v) {
-                    ObjectAnimator animator = ObjectAnimator.ofFloat(ll_item3, "translationZ", 20, 0);
-                    animator.addListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            newsClickListener.onClick(getAdapterPosition(),2);
-                        }
-                    });
-                    animator.start();
+                newsClickListener.onClick(getAdapterPosition(),2);
                 }
             });
 
